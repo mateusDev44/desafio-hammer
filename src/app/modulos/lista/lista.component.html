@@ -1,0 +1,60 @@
+<div class="container d-flex justify-content-center" id="tabs">
+    <main ontouchstart style="cursor: pointer;">
+        <nav class="tab-link">
+            <a (click)="clickTab(1)" style="text-decoration: none;">Lista de Funcionarios</a>
+            <a (click)="clickTab(2)" style="text-decoration: none;">Lista de Convidados</a>
+            <hr />
+        </nav>
+    </main>
+</div>
+
+
+<div class="container justify-content-center" *ngIf="tabId == 1">
+
+    <h3 class="title">Lista de funcionarios</h3>
+    <table class="table table-dark" id="table1">
+        <thead>
+            <tr>
+                <th scope="col">Nome do funcionario</th>
+                <th scope="col">Total contribuido</th>
+                <th scope="col">Gasto com bebida</th>
+                <th scope="col">Gasto com comida</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of funcionario">
+                <td>{{f.nome}}</td>
+                <td>R${{f.contribuicao}}</td>
+                <td>R${{f.bebida}}</td>
+                <td>R${{f.comida}}</td>
+                <td><button type="button" class="btn btn-danger" (click)="deleteF(f.id)">Cancelar participação</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="container justify-content-center" *ngIf="tabId == 2">
+
+    <h3 class="title">Lista de convidados</h3>
+    <table class="table table-dark" id="table2">
+        <thead>
+            <tr>
+                
+                <th scope="col">Nome Convidado</th>
+                <th scope="col">Total contribuido</th>
+                <th scope="col">Actions</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let fc of funcionario_convidado">
+                <td>{{fc.nome_convidado}}</td>
+                <td>R$20</td>
+                <td><button type="button" class="btn btn-danger" (click)="deleteC(fc.id)">Cancelar participação</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

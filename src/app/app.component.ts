@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hammer-churrasco';
+
+  toogle = true;
+
+  toggleDisplay() {
+
+    this.toogle = !this.toogle;
+
+  }
+
+
 }

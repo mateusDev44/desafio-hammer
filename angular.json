@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "hammer-churrasco"
+  "defaultProject": "hammer-churrasco",
+  "cli": {
+    "analytics": "b8b74601-7efc-447e-a96a-8cdf4ec3922c"
+  }
 }

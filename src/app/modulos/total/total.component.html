@@ -1,0 +1,15 @@
+<div class="container d-flex justify-content-center">
+    <main ontouchstart style="cursor: pointer;">
+        <nav class="tab-link">
+            <a (click)="clickTab(1)" style="text-decoration: none;">Total arrecadado</a>
+            <a (click)="clickTab(2)" style="text-decoration: none;">Total gasto com comida</a>
+            <a (click)="clickTab(3)" style="text-decoration: none;">Total gasto com bebida</a>
+            <hr />
+        </nav>
+    </main>
+</div>
+
+
+<app-total-arrecadado *ngIf="tabId == 1"></app-total-arrecadado>
+<app-total-gasto-bebidas *ngIf="tabId == 2"></app-total-gasto-bebidas>
+<app-total-gasto-comida *ngIf="tabId == 3"></app-total-gasto-comida>

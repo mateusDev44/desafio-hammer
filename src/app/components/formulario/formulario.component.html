@@ -1,0 +1,84 @@
+<a class="btn btn-primary btn-lg" role="button" style="margin-left: 30px;" (click)="enviar(Modal)">Confirme presença</a>
+
+
+
+<ng-template #Modal let-c="close" let-modal>
+
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"><strong>Preencha para confirmar presença</strong></h4>
+    <button type="button" class="close" (click)="c('')" style="color: red;">X</button>
+  </div>
+
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Nome do funcionário</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          [(ngModel)]="funcionario.nome" name="nome">
+        <small id="nome" class="form-text text-muted">Digite seu nome completo</small>
+      </div>
+      <br>
+
+      <label for="exampleInputEmail1">Irá levar um convidado ?</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+          (click)="ativarForm()">
+        <label class="form-check-label" for="flexRadioDefault1">
+          Sim
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+          (click)="closeForm()" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          Não
+        </label>
+      </div>
+
+      <p *ngIf='form == false' style="color: red;">A contribuição para o funcionario sem convidados e de 20 Reais</p>
+      <p *ngIf='form' style="color: red;">A contribuição para o funcionario com convidado e de 40 Reais</p>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Total para contribuição</label>
+        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          [(ngModel)]="funcionario.contribuicao" name="contribuicao">
+      </div>
+
+      <div class="form-group" *ngIf="form" style="margin-top: 20px;">
+        <label for="exampleInputEmail1">Nome do convidado</label>
+        <input type="email" class="form-control" [(ngModel)]="funcionario_convidado.nome_convidado"
+          name="nome_convidado">
+        <small id="nome" class="form-text text-muted">Digite o nome do convidado</small>
+      </div>
+      <br>
+
+      <p style="margin-top: 10px; color: red;">A quantidade não deve ultrapassar o valor da contribuição</p>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Quantidade que o irá gastar com bebidas</label>
+        <br>
+        <input type="number" id="tentacles" name="tentacles" min="0" max="40" [(ngModel)]="funcionario.bebida">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Quantidade que o irá gastar com comida</label>
+        <br>
+        <input type="number" id="tentacles" name="tentacles" min="0" max="40" [(ngModel)]="funcionario.comida">
+      </div>
+    </form>
+    <br>
+
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="alert">
+      <strong>Presença confirmada</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)=close()></button>
+    </div>
+
+    <button type="button" class="btn btn-primary" *ngIf="form" (click)="confirmar()"
+      (click)="confirmarC()">Confirmar</button>
+    <button type="button" class="btn btn-primary" *ngIf="form == false" (click)="confirmar()">Confirmar</button>
+    <button type="button" class="btn btn-danger" style="margin-left: 10px;" (click)="c('')">Fechar</button>
+  </div>
+
+
+
+</ng-template>

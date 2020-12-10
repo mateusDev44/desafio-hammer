@@ -1,0 +1,45 @@
+footer {
+    margin-top: 150px;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    background: rgb(5, 226, 134);
+    animation: pulse 500ms infinite alternate;
+}
+
+.square {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: red;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    background: red;
+}
+
+.top {
+    top: 10px;
+}
+
+.left {
+    left: 10px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.9) rotate(-135deg);
+    }
+    100% {
+        transform: scale(1.1) rotate(-135deg);
+    }
+}
